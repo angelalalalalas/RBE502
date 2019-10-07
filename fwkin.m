@@ -1,6 +1,6 @@
 function joint_positions = fwkin(q1,q2,q3,q4,q5)
 % angles in rad
-    l1 = 4.123; % in
+    l1 = 4.125; % in
     l2 = 6.43; % in
     
 
