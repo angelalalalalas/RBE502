@@ -5,7 +5,7 @@ function joint_positions = fwkin(q1,q2,q3,q4,q5)
     
 
     T01 = fwkintrans(l1,q1,0,-3.1415/2);
-    T02 = T01 * fwkintrans(0,q2,l2,0);
+    T02 = T01 * fwkintrans(0,q2-3.1415/2,l2,0);
     T03 = T02 * fwkintrans(0,q3,l2,0);
     T04 = T03 * fwkintrans(0,q4,l1,3.1415/2);
     T05 = T04 * fwkintrans(0,q5,0,0);
