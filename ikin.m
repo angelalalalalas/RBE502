@@ -24,4 +24,4 @@ q3 = pi - A;
 q4 = theta - q2 - q3;
 q5 = phi;
 
-%disp([q1 q2 q3 q4 q5])
+disp([q1 q2 q3 q4 q5])
