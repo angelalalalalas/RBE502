@@ -12,8 +12,7 @@ T05 = T04 * fwkintrans(0,q5,0,0);
 
 joint_positions = [T01(1:3,4),T02(1:3,4),T03(1:3,4),T04(1:3,4),T05(1:3,4)];
 disp(T05);
-
-
+% 
 % figure;
 % 
 % plot3(0, 0, 0, 'o'); % point 0
@@ -43,6 +42,8 @@ disp(T05);
 % 
 % plot3(joint_positions(1,5), joint_positions(2,5), joint_positions(3,5), 'o'); % point 5
 % hold on;
+% 
+% 
 % 
 % xlabel('x, mm')
 % ylabel('y, mm')

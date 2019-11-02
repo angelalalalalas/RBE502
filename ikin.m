@@ -6,11 +6,9 @@ function [q1, q2, q3, q4, q5] = ikin(x, y, z, theta, phi)
 L1 = 4.125; % L1 in inches
 L2 = 6.43; % L2 in inches
 
-z_goal = [sin(theta); 0; cos(theta)];
-
-P_prime = [x - L1 * z_goal(1); % adjusted goal point
-           y;
-           z - L1 * z_goal(3)];
+P_prime = [x - cos(atan2(y,x)) * L1 * cos(theta - pi/2); % adjusted goal point
+           y - sin(atan2(y,x)) * L1 * cos(theta - pi/2);
+           z - L1 * cos(theta)];
 a = norm(P_prime - [0; 0; L1]); % length of vector between top of link 1 and adjusted goal point
 
 A = acos((a^2 - 2*(L2^2))/(-2*(L2^2)));
@@ -25,3 +23,7 @@ q4 = theta - q2 - q3;
 q5 = phi;
 
 disp([q1 q2 q3 q4 q5])
+
+% fwkin(q1, q2, q3, q4, q5);
+% 
+% plot3(x, y, z, 'd', 'MarkerSize', 12, 'Color', 'r');
