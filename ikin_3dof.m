@@ -1,0 +1,27 @@
+%% Inverse Kinematics
+% Units: inches, radians
+function [q1, q2, q3] = ikin_3dof(y, z, gamma, elbow_up)
+
+% Robot Parameters
+L1 = 4.125 * 0.0254; % L1 in meters
+L2 = 6.43 * 0.0254; % L2 in meters
+
+new_z = z - L1; % take away the height of the first link (vertical) 
+
+y3 = y - L1 * cos(gamma);
+z3 = new_z - L1 * sin(gamma); % reduce to the 2dof planar robot
+
+beta = acos((L2^2 + (y3^2 + z3^2) - L2^2)/(2*L2*sqrt(y3^2 + z3^2)));
+
+if elbow_up == 1
+    q2 = -2 * beta;
+    q1 = pi/2 - (atan2(z3,y3) + beta);
+
+elseif elbow_up == 0
+    q2 = 2 * beta;
+    q1 = pi/2 - (atan2(z3,y3) - beta);
+end
+
+q3 = gamma - q1 - q2;
+
+disp([q1 q2 q3])
