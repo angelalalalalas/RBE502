@@ -22,6 +22,6 @@ elseif elbow_up == 0
     q1 = pi/2 - (atan2(z3,y3) - beta);
 end
 
-q3 = gamma - q1 - q2;
+q3 = gamma - pi/2 + q1 - q2;
 
 disp([q1 q2 q3])
