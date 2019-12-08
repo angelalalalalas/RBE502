@@ -1,5 +1,5 @@
 %% Inverse Kinematics
-% Units: inches, radians
+% Units: meters, radians
 function [q1, q2, q3] = ikin_3dof(y, z, gamma, elbow_up)
 
 % Robot Parameters
