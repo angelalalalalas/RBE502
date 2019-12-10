@@ -1,10 +1,10 @@
 %% Inverse Kinematics
 % Units: inches, radians
-function [q1, q2, q3, q4, q5] = ikin(x, y, z, theta, phi)
+function q = ikin(x, y, z, theta, phi)
 
 % Robot Parameters
-L1 = 4.125; % L1 in inches
-L2 = 6.43; % L2 in inches
+L1 = 4.125* 0.0254; % L1 in inches
+L2 = 6.43* 0.0254; % L2 in inches
 
 P_prime = [x - cos(atan2(y,x)) * L1 * cos(theta - pi/2); % adjusted goal point
            y - sin(atan2(y,x)) * L1 * cos(theta - pi/2);
@@ -22,7 +22,8 @@ q3 = pi - A;
 q4 = theta - q2 - q3;
 q5 = phi;
 
-disp([q1 q2 q3 q4 q5])
+q = [q1 q2 q3 q4 q5];
+end
 
 % fwkin(q1, q2, q3, q4, q5);
 % 
